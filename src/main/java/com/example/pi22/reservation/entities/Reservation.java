@@ -1,2 +1,3 @@
-package com.example.pi22.reservation.entities;public class Reservation {
+package com.example.pi22.reservation.entities;
+public class Reservation {
 }

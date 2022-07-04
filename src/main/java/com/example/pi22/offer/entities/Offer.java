@@ -2,6 +2,7 @@ package com.example.pi22.offer.entities;
 
 import com.example.pi22.partner.entities.Partner;
 import com.example.pi22.publicite.entities.Publicite;
+import com.example.pi22.reservation.entities.Reservation;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
@@ -29,6 +30,8 @@ public class Offer {
 
     @OneToMany(mappedBy="offer")
     private Set<Publicite> publicites;
+    @ManyToMany
+    Set<Reservation> reservations;
     @ManyToOne
     @JoinColumn(name="id", nullable=true)
     private Partner partner;
@@ -151,5 +154,13 @@ public class Offer {
 
     public void setPublicites(Set<Publicite> publicites) {
         this.publicites = publicites;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

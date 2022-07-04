@@ -12,7 +12,7 @@ import java.util.Set;
 public class Plan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String type;
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -25,11 +25,11 @@ public class Plan {
     @OneToMany(mappedBy="plan")
     private Set<Partner> partners;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

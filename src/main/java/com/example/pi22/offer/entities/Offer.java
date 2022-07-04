@@ -1,10 +1,12 @@
 package com.example.pi22.offer.entities;
 
 import com.example.pi22.partner.entities.Partner;
+import com.example.pi22.publicite.entities.Publicite;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Offer {
@@ -15,12 +17,18 @@ public class Offer {
     private float price;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dateCreation;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date dateDebut;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date dateFin;
     private int stock;
     private boolean enabled;
     private String picture;
     private String title;
     private String description;
 
+    @OneToMany(mappedBy="offer")
+    private Set<Publicite> publicites;
     @ManyToOne
     @JoinColumn(name="id", nullable=true)
     private Partner partner;
@@ -119,5 +127,29 @@ public class Offer {
 
     public void setPartner(Partner partner) {
         this.partner = partner;
+    }
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public Date getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public Set<Publicite> getPublicites() {
+        return publicites;
+    }
+
+    public void setPublicites(Set<Publicite> publicites) {
+        this.publicites = publicites;
     }
 }

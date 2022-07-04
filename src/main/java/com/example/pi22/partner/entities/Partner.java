@@ -2,6 +2,7 @@ package com.example.pi22.partner.entities;
 
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.plan.entite.Plan;
+import com.example.pi22.publicite.entities.Publicite;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -25,6 +26,8 @@ public class Partner {
     @JoinColumn(name="id", nullable=true)
     private Plan plan;
 
+    @OneToMany(mappedBy="partner")
+    private Set<Publicite> publicites;
 
     public Partner(int id, String adress, String matriculeFiscale, String tel, String catégorie, String activites) {
        super();
@@ -101,5 +104,13 @@ public class Partner {
 
     public void setPlan(Plan plan) {
         this.plan = plan;
+    }
+
+    public Set<Publicite> getPublicites() {
+        return publicites;
+    }
+
+    public void setPublicites(Set<Publicite> publicites) {
+        this.publicites = publicites;
     }
 }

@@ -23,7 +23,6 @@ public class Partner {
     private Set<Offer> offers;
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=true)
     private Plan plan;
 
     @OneToMany(mappedBy="partner")

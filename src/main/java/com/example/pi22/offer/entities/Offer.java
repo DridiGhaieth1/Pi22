@@ -33,7 +33,6 @@ public class Offer {
     @ManyToMany
     Set<Reservation> reservations;
     @ManyToOne
-    @JoinColumn(name="id", nullable=true)
     private Partner partner;
 
     public Offer(String type, float price, Date dateCreation, int stock, boolean enabled, String picture, String title, String description, Partner partner) {

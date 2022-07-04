@@ -21,7 +21,6 @@ public class Reservation {
     @ManyToMany
     Set<Offer> offers;
     @ManyToOne
-    @JoinColumn(name="id", nullable=true)
     private User user;
     private float totalPrice;
     private String status;

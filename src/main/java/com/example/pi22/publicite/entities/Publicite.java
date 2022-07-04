@@ -30,7 +30,6 @@ public class Publicite {
 
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=true)
     private Partner partner;
 
     @ManyToOne

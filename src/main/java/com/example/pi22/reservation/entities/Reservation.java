@@ -14,7 +14,7 @@ import java.util.Set;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private boolean validated;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dateCreation;
@@ -26,11 +26,11 @@ public class Reservation {
     private float totalPrice;
     private String status;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

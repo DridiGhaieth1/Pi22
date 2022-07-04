@@ -12,7 +12,7 @@ import java.util.Date;
 public class Publicite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String nom;
     private String catégorie;
     private Boolean enabled;
@@ -37,11 +37,11 @@ public class Publicite {
     @JoinColumn(name="id", nullable=true)
     private Offer offer;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

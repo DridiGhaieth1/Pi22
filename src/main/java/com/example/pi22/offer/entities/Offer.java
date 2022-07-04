@@ -4,6 +4,7 @@ import com.example.pi22.partner.entities.Partner;
 import com.example.pi22.publicite.entities.Publicite;
 import com.example.pi22.reservation.entities.Reservation;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,7 +31,8 @@ public class Offer {
 
     @OneToMany(mappedBy="offer")
     private Set<Publicite> publicites;
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(mappedBy="offers")
     Set<Reservation> reservations;
     @ManyToOne
     private Partner partner;

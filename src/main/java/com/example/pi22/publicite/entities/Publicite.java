@@ -33,7 +33,6 @@ public class Publicite {
     private Partner partner;
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=true)
     private Offer offer;
 
     public Integer getId() {

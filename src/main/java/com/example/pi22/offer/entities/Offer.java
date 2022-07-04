@@ -13,7 +13,7 @@ import java.util.Set;
 public class Offer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String type;
     private float price;
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -49,11 +49,11 @@ public class Offer {
         this.partner = partner;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

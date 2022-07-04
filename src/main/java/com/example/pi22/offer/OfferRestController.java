@@ -29,7 +29,7 @@ public class OfferRestController {
         offerService.deleteOfferById(id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateOffer")
     @ResponseBody
     public void updateOffer(@RequestBody Offer f) {
         offerService.updateOffer(f);

@@ -12,7 +12,7 @@ public class Partner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String adress;
     private String matriculeFiscale;
     private String tel;
@@ -29,7 +29,7 @@ public class Partner {
     @OneToMany(mappedBy="partner")
     private Set<Publicite> publicites;
 
-    public Partner(int id, String adress, String matriculeFiscale, String tel, String catégorie, String activites) {
+    public Partner(Integer id, String adress, String matriculeFiscale, String tel, String catégorie, String activites) {
        super();
         this.id = id;
         this.adress = adress;
@@ -42,11 +42,11 @@ public class Partner {
         super();
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

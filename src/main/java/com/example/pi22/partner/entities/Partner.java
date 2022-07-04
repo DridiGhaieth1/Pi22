@@ -3,6 +3,7 @@ package com.example.pi22.partner.entities;
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.plan.entite.Plan;
 import com.example.pi22.publicite.entities.Publicite;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -18,7 +19,7 @@ public class Partner {
     private String tel;
     private String catégorie;
     private String activites;
-
+    @JsonIgnore
     @OneToMany(mappedBy="partner")
     private Set<Offer> offers;
 

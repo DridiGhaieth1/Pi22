@@ -11,7 +11,7 @@ public interface IOfferService {
     Offer getOffer(Long id);
     void deleteOffer(Offer f);
     void deleteOfferById(Long id);
-    Set<Offer> getAllOffers();
+    List<Offer> getAllOffers();
 
 
 }

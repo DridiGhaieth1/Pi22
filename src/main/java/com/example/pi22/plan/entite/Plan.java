@@ -3,6 +3,7 @@ package com.example.pi22.plan.entite;
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.partner.entities.Partner;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class Plan {
     private Date DateInscri;
     private Boolean renouvlable;
 
+    @JsonIgnore
     @OneToMany(mappedBy="plan")
     private Set<Partner> partners;
 

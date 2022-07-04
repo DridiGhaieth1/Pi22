@@ -1,8 +1,10 @@
 package com.example.pi22.partner.entities;
 
+import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.plan.entite.Plan;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Partner {
@@ -15,6 +17,14 @@ public class Partner {
     private String tel;
     private String catégorie;
     private String activites;
+
+    @OneToMany(mappedBy="partner")
+    private Set<Offer> offers;
+
+    @ManyToOne
+    @JoinColumn(name="id", nullable=true)
+    private Plan plan;
+
 
     public Partner(int id, String adress, String matriculeFiscale, String tel, String catégorie, String activites) {
        super();
@@ -75,5 +85,21 @@ public class Partner {
 
     public void setActivites(String activites) {
         this.activites = activites;
+    }
+
+    public Set<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(Set<Offer> offers) {
+        this.offers = offers;
+    }
+
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
 }

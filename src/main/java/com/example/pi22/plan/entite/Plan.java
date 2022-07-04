@@ -1,12 +1,12 @@
 package com.example.pi22.plan.entite;
 
+import com.example.pi22.offer.entities.Offer;
+import com.example.pi22.partner.entities.Partner;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Plan {
@@ -21,6 +21,9 @@ public class Plan {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private Date DateInscri;
     private Boolean renouvlable;
+
+    @OneToMany(mappedBy="plan")
+    private Set<Partner> partners;
 
     public int getId() {
         return id;
@@ -70,17 +73,24 @@ public class Plan {
         this.renouvlable = renouvlable;
     }
 
-    public Plan(int id, String type, Date dateDebut, int durre, Date dateInscri, Boolean renouvlable) {
-     super();
-        this.id = id;
+    public Plan(String type, Date dateDebut, int durre, Date dateInscri, Boolean renouvlable, Set<Partner> partners) {
         this.type = type;
         DateDebut = dateDebut;
         this.durre = durre;
         DateInscri = dateInscri;
         this.renouvlable = renouvlable;
+        this.partners = partners;
     }
-    public Plan(){
 
+    public Plan(){
         super();
+    }
+
+    public Set<Partner> getPartners() {
+        return partners;
+    }
+
+    public void setPartners(Set<Partner> partners) {
+        this.partners = partners;
     }
 }

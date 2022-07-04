@@ -1,11 +1,9 @@
 package com.example.pi22.offer.entities;
 
+import com.example.pi22.partner.entities.Partner;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -23,9 +21,12 @@ public class Offer {
     private String title;
     private String description;
 
-    public Offer(int id, String type, float price, Date dateCreation, int stock, boolean enabled, String picture, String title, String description) {
+    @ManyToOne
+    @JoinColumn(name="id", nullable=true)
+    private Partner partner;
+
+    public Offer(String type, float price, Date dateCreation, int stock, boolean enabled, String picture, String title, String description, Partner partner) {
       super();
-        this.id = id;
         this.type = type;
         this.price = price;
         this.dateCreation = dateCreation;
@@ -34,6 +35,7 @@ public class Offer {
         this.picture = picture;
         this.title = title;
         this.description = description;
+        this.partner = partner;
     }
 
     public int getId() {
@@ -109,5 +111,13 @@ public class Offer {
     }
     public Offer(){
         super();
+    }
+
+    public Partner getPartner() {
+        return partner;
+    }
+
+    public void setPartner(Partner partner) {
+        this.partner = partner;
     }
 }

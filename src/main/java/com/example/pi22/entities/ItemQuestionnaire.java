@@ -8,19 +8,16 @@ import java.util.List;
 
 @Entity
 @Data
-public class Article {
+public class ItemQuestionnaire {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idArticle;
-    private String textArticle;
-    private String titreArticle;
-
+    private Long idItem;
+    private String question;
     @ManyToOne
-    private Sujet sujet;
-    @ManyToOne
-    private User user;
+    private Questionnaire questionnaire;
     @JsonIgnore
-    @OneToMany(mappedBy = "article")
-    private List<Commentaire> commentaires;
+    @OneToMany(mappedBy = "itemQuestionnaire")
+    private List<ReponseQuestionnaire> reponseQuestionnaires;
 
 }

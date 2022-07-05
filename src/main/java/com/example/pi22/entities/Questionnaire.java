@@ -1,16 +1,21 @@
 package com.example.pi22.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
 public class Questionnaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_questionnaire;
-    private String titre_questionnaire;
-    private String texte_questionnaire;
+    private Long idQuestionnaire;
+    private String titreQuestionnaire;
+    private String texteQuestionnaire;
+    @JsonIgnore
+    @OneToMany(mappedBy = "questionnaire")
+    private List<ItemQuestionnaire> itemQuestionnaires;
 
 }

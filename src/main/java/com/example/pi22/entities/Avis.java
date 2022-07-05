@@ -1,15 +1,19 @@
 package com.example.pi22.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
+@Data
 public class Avis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_avis;
-    private String texte_avis;
+    private Long idAvis;
+    private String texteAvis;
+    private boolean anonymous;
+
+    @ManyToOne
+    private User user;
 
 }

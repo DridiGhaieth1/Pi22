@@ -7,20 +7,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
 @Data
-public class User implements Serializable {
+@Entity
+public class Departement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    private String prenom;
-    private String email;
-    private String password;
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    private String nomDepart;
+    @JsonIgnore
+    @OneToMany(mappedBy = "departement")
+    private List<User> users;
     @ManyToOne
-    private Departement departement;
-    @OneToOne
-    private Profil profil;
+    private Entreprise entreprise;
+
 }

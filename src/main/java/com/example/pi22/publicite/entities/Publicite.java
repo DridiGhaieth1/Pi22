@@ -4,6 +4,7 @@ import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.partner.entities.Partner;
 import com.example.pi22.plan.entite.Plan;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -29,6 +30,7 @@ public class Publicite {
     private float dureeAffichage;
 
 
+    @JsonIgnore
     @ManyToOne
     private Partner partner;
 

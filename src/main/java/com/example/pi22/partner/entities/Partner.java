@@ -25,7 +25,7 @@ public class Partner {
 
     @ManyToOne
     private Plan plan;
-
+    @JsonIgnore
     @OneToMany(mappedBy="partner")
     private Set<Publicite> publicites;
 

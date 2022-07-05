@@ -29,6 +29,7 @@ public class Offer {
     private String title;
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy="offer")
     private Set<Publicite> publicites;
     @JsonIgnore

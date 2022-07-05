@@ -14,13 +14,13 @@ public class PartnerRestController {
     @Autowired
     IPartnerService partnerService;
 
-    @PostMapping("/addPartner")
+    @PostMapping("/partner/add")
     @ResponseBody
     public void ajouterPartner(@RequestBody Partner p) {
         partnerService.addPartner(p);
     }
 
-    @GetMapping("/listePartners")
+    @GetMapping("/partner/list")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public List<Partner> listePartners() {
@@ -32,7 +32,7 @@ public class PartnerRestController {
         partnerService.deletePartnerById(id);
     }
 
-    @PutMapping("/updatePartner")
+    @PutMapping("/partner/update")
     @ResponseBody
     public void updatePartner(@RequestBody Partner p) {
         partnerService.updatePartner(p);

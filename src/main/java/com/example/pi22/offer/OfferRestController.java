@@ -13,12 +13,12 @@ public class OfferRestController {
 
     @Autowired
     IOfferService offerService;
-    @PostMapping("/addOffer")
+    @PostMapping("/offer/add")
     @ResponseBody
     public void ajouterProduit(@RequestBody Offer f) {
         offerService.addOffer(f);
     }
-    @GetMapping("/listeOffers")
+    @GetMapping("/offer/list")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public List<Offer> listeOffers() {
@@ -29,7 +29,7 @@ public class OfferRestController {
         offerService.deleteOfferById(id);
     }
 
-    @PutMapping("/updateOffer")
+    @PutMapping("/offer/update")
     @ResponseBody
     public void updateOffer(@RequestBody Offer f) {
         offerService.updateOffer(f);

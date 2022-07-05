@@ -14,12 +14,12 @@ public class PlanRestController {
     @Autowired
     IPlanService planService;
 
-    @PostMapping("/addPlan")
+    @PostMapping("/plan/add")
     @ResponseBody
     public void ajouterPlan(@RequestBody Plan p) {
         planService.addPlan(p);
     }
-    @GetMapping("/listPlans")
+    @GetMapping("/plan/list")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public List<Plan> listePlans() {
@@ -30,7 +30,7 @@ public class PlanRestController {
         planService.deletePlanById(id);
     }
 
-    @PutMapping("/updatePlan")
+    @PutMapping("/plan/update")
     @ResponseBody
     public void updatePlan(@RequestBody Plan p) {
         planService.updatePlan(p);

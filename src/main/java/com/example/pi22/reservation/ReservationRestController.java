@@ -1,12 +1,15 @@
 package com.example.pi22.reservation;
 
+import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.reservation.entities.Reservation;
 import com.example.pi22.reservation.services.IReservationService;
+import com.example.pi22.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class ReservationRestController {
@@ -36,5 +39,12 @@ public class ReservationRestController {
     public void updateReservation(@RequestBody Reservation f) {
         reservationService.updateReservation(f);
     }
+
+    @PutMapping("/reservation/createRes")
+    @ResponseBody
+    public void createResv(@RequestBody User u, Set<Offer> off) {
+        reservationService.createResv(u,off);
+    }
+
 
 }

@@ -1,12 +1,11 @@
 package com.example.pi22.reservation.entities;
 
 import com.example.pi22.offer.entities.Offer;
-import com.example.pi22.plan.entite.Plan;
-import com.example.pi22.publicite.entities.Publicite;
 import com.example.pi22.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -17,13 +16,21 @@ public class Reservation {
     private Integer id;
     private boolean validated;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date dateCreation;
+    private LocalDate dateCreation;
     @ManyToMany
     Set<Offer> offers;
     @ManyToOne
     private User user;
     private float totalPrice;
     private String status;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;
@@ -41,11 +48,11 @@ public class Reservation {
         this.validated = validated;
     }
 
-    public Date getDateCreation() {
+    public LocalDate getDateCreation() {
         return dateCreation;
     }
 
-    public void setDateCreation(Date dateCreation) {
+    public void setDateCreation(LocalDate dateCreation) {
         this.dateCreation = dateCreation;
     }
 
@@ -73,7 +80,7 @@ public class Reservation {
         this.status = status;
     }
 
-    public Reservation(boolean validated, Date dateCreation, Set<Offer> offers, float totalPrice) {
+    public Reservation(boolean validated, LocalDate dateCreation, Set<Offer> offers, float totalPrice) {
         super();
         this.validated = validated;
         this.dateCreation = dateCreation;
@@ -82,5 +89,9 @@ public class Reservation {
     }
     public Reservation (){
         super(); }
+
+
+
+
 
 }

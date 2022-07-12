@@ -22,7 +22,7 @@ public class Partner {
     @JsonIgnore
     @OneToMany(mappedBy="partner")
     private Set<Offer> offers;
-
+// cascade all
     @ManyToOne
     private Plan plan;
     @JsonIgnore

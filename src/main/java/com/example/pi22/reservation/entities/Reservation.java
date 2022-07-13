@@ -3,6 +3,7 @@ package com.example.pi22.reservation.entities;
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class Reservation {
     private LocalDate dateCreation;
     @ManyToMany
     Set<Offer> offers;
+    @JsonIgnore
     @ManyToOne
     private User user;
     private float totalPrice;

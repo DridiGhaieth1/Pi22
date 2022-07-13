@@ -40,10 +40,10 @@ public class ReservationRestController {
         reservationService.updateReservation(f);
     }
 
-    @PutMapping("/reservation/createRes")
+    @PostMapping("/reservation/createRes")
     @ResponseBody
-    public void createResv(@RequestBody User u, Set<Offer> off) {
-        reservationService.createResv(u,off);
+    public void createResv(@RequestBody Reservation r) {
+        reservationService.createResv(r);
     }
 
 

@@ -14,5 +14,5 @@ public interface IReservationService {
     void deleteReservation(Reservation r);
     void deleteReservationById(Long id);
     List<Reservation> getAllReservations();
-    void createResv(User u, Set<Offer> off );
+    void createResv(Reservation r);
 }

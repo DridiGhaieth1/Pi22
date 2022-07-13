@@ -54,24 +54,24 @@ public class ReservationServiceImpl implements IReservationService {
     }
 
     @Override
-    public void createResv(User u,  Set<Offer> off) {
+    public void createResv(Reservation r) {
         float lastprice = 0;
-        Reservation r1 = new Reservation();
+       // Reservation r1 = new Reservation();
         LocalDate localDate = LocalDate.now();
-        r1.setDateCreation(localDate);
-        r1.setUser(u);
+        r.setDateCreation(localDate);
+       // r1.setUser(u);
         Set<Offer> of = new HashSet<>() ;
-        for (Offer f:off) {
+        for (Offer f:r.getOffers()) {
             lastprice +=  f.getPrice();
-            of.add(f);
+           // of.add(f);
             f.setStock(f.getStock()-1);
             offerRepository.save(f);
         }
-        r1.setOffers(of);
-         r1.setTotalPrice(lastprice);
-         r1.setStatus("0");
-         r1.setUser(u);
-        reservationRepository.save(r1);
+
+         r.setTotalPrice(lastprice);
+         r.setStatus("0");
+     //    r1.setUser(u);
+        reservationRepository.save(r);
     }
 
 }

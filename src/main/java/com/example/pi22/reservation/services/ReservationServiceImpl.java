@@ -69,9 +69,22 @@ public class ReservationServiceImpl implements IReservationService {
         }
 
          r.setTotalPrice(lastprice);
-         r.setStatus("0");
+         r.setStatus("1");
      //    r1.setUser(u);
         reservationRepository.save(r);
     }
+
+    @Override
+    public void annulerReservation(Reservation r) {
+        for (Offer f:r.getOffers()) {
+            // of.add(f);
+            f.setStock(f.getStock()+1);
+            offerRepository.save(f);
+        }
+        r.setStatus("0");
+        //    r1.setUser(u);
+        reservationRepository.save(r);
+    }
+
 
 }

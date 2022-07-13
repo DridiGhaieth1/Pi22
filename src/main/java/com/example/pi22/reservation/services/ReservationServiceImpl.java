@@ -2,6 +2,7 @@ package com.example.pi22.reservation.services;
 
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.offer.repo.OfferRepository;
+import com.example.pi22.offer.services.IOfferService;
 import com.example.pi22.reservation.entities.Reservation;
 import com.example.pi22.reservation.repo.ReservationRepository;
 import com.example.pi22.user.User;
@@ -22,6 +23,10 @@ public class ReservationServiceImpl implements IReservationService {
     UserRepository userRepository;
     @Autowired
     OfferRepository offerRepository;
+
+    @Autowired
+    IOfferService offerService;
+
 
     @Override
     public void addReservation(Reservation r) {
@@ -54,24 +59,21 @@ public class ReservationServiceImpl implements IReservationService {
     }
 
     @Override
-    public void createResv(Reservation r) {
+    public Reservation createResv(Reservation r) {
         float lastprice = 0;
-       // Reservation r1 = new Reservation();
         LocalDate localDate = LocalDate.now();
         r.setDateCreation(localDate);
-       // r1.setUser(u);
-        Set<Offer> of = new HashSet<>() ;
         for (Offer f:r.getOffers()) {
-            lastprice +=  f.getPrice();
-           // of.add(f);
-            f.setStock(f.getStock()-1);
-            offerRepository.save(f);
-        }
+          Offer off1 =  offerService.getOffer(f.getId());
+            lastprice +=  off1.getPrice();
 
+         // System.out.println(off1.getPrice());
+
+        }
          r.setTotalPrice(lastprice);
          r.setStatus("1");
-     //    r1.setUser(u);
-        reservationRepository.save(r);
+
+        return reservationRepository.save(r);
     }
 
     @Override

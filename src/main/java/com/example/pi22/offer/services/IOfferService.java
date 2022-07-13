@@ -8,10 +8,11 @@ import java.util.Set;
 public interface IOfferService {
     void addOffer(Offer offer);
     void updateOffer(Offer offer);
-    Offer getOffer(Long id);
+    Offer getOffer(Integer id);
     void deleteOffer(Offer f);
     void deleteOfferById(Long id);
     List<Offer> getAllOffers();
+
 
 
 }

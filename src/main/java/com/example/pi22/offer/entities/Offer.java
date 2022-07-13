@@ -32,7 +32,7 @@ public class Offer {
     @JsonIgnore
     @OneToMany(mappedBy="offer")
     private Set<Publicite> publicites;
-    @JsonIgnore
+   // @JsonIgnore
     @ManyToMany(mappedBy="offers")
     Set<Reservation> reservations;
     @ManyToOne

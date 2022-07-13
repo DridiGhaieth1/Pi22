@@ -42,8 +42,8 @@ public class ReservationRestController {
 
     @PostMapping("/reservation/createRes")
     @ResponseBody
-    public void createResv(@RequestBody Reservation r) {
-        reservationService.createResv(r);
+    public Reservation createResv(@RequestBody Reservation r) {
+        return reservationService.createResv(r);
     }
 
 

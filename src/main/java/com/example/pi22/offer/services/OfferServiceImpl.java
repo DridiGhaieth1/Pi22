@@ -24,7 +24,7 @@ public class OfferServiceImpl implements IOfferService {
     }
 
     @Override
-    public Offer getOffer(Long id) {
+    public Offer getOffer(Integer id) {
         return offerRepository.findById(Math.toIntExact(id)).get();
     }
 

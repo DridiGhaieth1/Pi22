@@ -20,7 +20,6 @@ public class Reservation {
     private LocalDate dateCreation;
     @ManyToMany
     Set<Offer> offers;
-    @JsonIgnore
     @ManyToOne
     private User user;
     private float totalPrice;

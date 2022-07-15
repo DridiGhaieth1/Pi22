@@ -24,6 +24,10 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "userAbn")
     private Set<Abonnement> abonnement;
 
+@OneToMany(mappedBy = "userRes")
+    private Set<Reservation> reservations;
+
+
 
 
 }

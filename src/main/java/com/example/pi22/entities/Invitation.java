@@ -12,7 +12,7 @@ import java.util.Date;
 public class Invitation implements Serializable {
 
     @EmbeddedId
-    private InvitationId id ;
+    private InvitationId id_Inv ;
     private String descptionInv ;
     @Temporal(TemporalType.DATE)
     private Date dateInvitation ;

@@ -17,7 +17,7 @@ public class Abonnement implements Serializable {
     private int dureeParMois;
     @Temporal(TemporalType.DATE)
     private Date dateDebut;
-    @Temporal(TemporalType.DATE)
+    @Transient
     private Date dateFin ;
     private float prix;
 
@@ -25,7 +25,7 @@ public class Abonnement implements Serializable {
     @JoinColumn(name = "user_id",insertable = false,updatable = false)
     private User userAbn;
     @ManyToOne
-    @JoinColumn(name = "activite_id",insertable = false,updatable = false)
+    @JoinColumn(name = "activite_idd",insertable = false,updatable = false)
     private Activite activite ;
 
 

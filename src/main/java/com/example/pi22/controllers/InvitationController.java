@@ -15,6 +15,24 @@ public class InvitationController {
     private IInvitationService invitationService;
 
 
+    @PostMapping
+    public Invitation ajouterInvit(@RequestBody Invitation invitation) {
+        return  invitationService.ajouterInv(invitation);
+    }
+
+
+    @PutMapping
+    public Invitation modifierInvit(@RequestBody Invitation invitation) {
+        return  invitationService.updateInv(invitation);
+    }
+
+    @DeleteMapping("/{idUser}/{idEvent}")
+    public String delete(@PathVariable Long idUser, @PathVariable Long idEvent) {
+     return     invitationService.delete(idUser, idEvent);
+    }
+
+
+
     @GetMapping("/event/{id}")
     public List<Invitation> findByEvent(@PathVariable Long id) {
 
@@ -26,22 +44,5 @@ public class InvitationController {
     public List<Invitation> findByUser(@PathVariable Long id) {
 
         return invitationService.findByUser(id);
-    }
-
-
-    @DeleteMapping("/{idUser}/{idEvent}")
-    public String delete(@PathVariable Long idUser, @PathVariable Long idEvent) {
-     return     invitationService.delete(idUser, idEvent);
-    }
-
-
-    @PostMapping
-    public Invitation ajouterInvit(@RequestBody Invitation invitation) {
-    return  invitationService.ajouterInv(invitation);
-    }
-
-    @PutMapping
-    public Invitation modifierInvit(@RequestBody Invitation invitation) {
-        return  invitationService.updateInv(invitation);
     }
 }

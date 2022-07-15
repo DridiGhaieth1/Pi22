@@ -13,7 +13,7 @@ public class AbonnementId implements Serializable {
 @Column(name = "user_id")
 private Long userId;
 
-@Column(name = "activite_id")
+@Column(name = "activite_idd")
 private Long activiteId;
 
 

@@ -11,7 +11,7 @@ public interface IactiviteService {
     public Activite ajouterActiv(Activite activite);
     public Activite updateActiv(Activite activite);
     public String delete(Long id);
-    public List<Activite> listEvenement();
+    public List<Activite> listActivite();
     public Activite getByIdActiv(Long id);
 
 }

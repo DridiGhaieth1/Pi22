@@ -6,6 +6,8 @@ import com.example.pi22.services.ServiceEvenement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/event")
 public class EvenementControlloer {
@@ -13,26 +15,30 @@ public class EvenementControlloer {
     private ServiceEvenement serviceEvenement;
 
 
-    @PostMapping("/Ajouter")
+    @PostMapping("/AjouterEvent")
     public Evenement ajouterEvent(@RequestBody Evenement evenement){
+
         return serviceEvenement.saveEven(evenement);
     }
 
-    @PutMapping("/Update")
+    @PutMapping("/UpdateEvent")
     public Evenement modifierEvent(@RequestBody Evenement evenement){
         return serviceEvenement.updateEvn(evenement);
     }
 
-    @DeleteMapping("/Delete/{id}")
+    @DeleteMapping("/DeleteEvent/{id}")
     public void supprimerEvent(@PathVariable Long id){
         serviceEvenement.supressionEVN(id);
     }
 
-@GetMapping("/GetById/{id}")
+    @GetMapping("/GetEventById/{id}")
     public Evenement getEventById(@PathVariable Long id){
         return serviceEvenement.getById(id);
 }
 
-
+    @GetMapping ("/GetListEvent")
+        public List<Evenement> getListEvent(){
+        return serviceEvenement.listEvenement();
+        }
 
 }

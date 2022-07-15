@@ -15,13 +15,16 @@ public class InvitationServiceImpl  implements IInvitationService{
     private InvitaionRepository invitaionRepository;
     @Override
     public Invitation ajouterInv(Invitation invitation) {
+
         return invitaionRepository.save(invitation);
     }
+
 
     @Override
     public Invitation updateInv(Invitation invitation) {
         return invitaionRepository.save(invitation);
     }
+
 
     @Override
     public String delete(Long idUser, Long idEvent) {

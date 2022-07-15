@@ -27,4 +27,8 @@ public class Activite implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "activite")
     private Set<Abonnement> abonnement;
+
+    @ManyToOne
+    private Favoris favoris;
+
 }

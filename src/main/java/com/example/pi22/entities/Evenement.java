@@ -28,5 +28,10 @@ public class Evenement implements Serializable {
     @OneToMany(mappedBy = "evenement")
     private Set<Invitation> invitations;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "evenementt")
+    private Set<Reservation> reservations;
+
+
 
 }

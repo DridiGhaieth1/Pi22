@@ -1,6 +1,7 @@
 package com.example.pi22.services;
 
 import com.example.pi22.entities.Entreprise;
+import com.example.pi22.entities.User;
 import com.example.pi22.repositories.EntrepriseRepository;
 
 public interface EntrepriseService {

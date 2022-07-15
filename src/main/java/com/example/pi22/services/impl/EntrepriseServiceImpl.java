@@ -39,8 +39,8 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 
 
     @Override
-    public Entreprise findById(Long id) throws Exception {
-        return null;
+    public Entreprise findById(Long id) throws Exception{
+        return entrepriseRepository.findById(id).orElseThrow(() -> new Exception("Utilisateur n'existe pas"));
     }
 
 

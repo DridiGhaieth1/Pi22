@@ -6,6 +6,7 @@ import com.example.pi22.repositories.DepartementRepository;
 import com.example.pi22.repositories.UserRepository;
 import com.example.pi22.services.DepartementService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.ExpressionException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.List;
 public class DepartementServiceImpl implements DepartementService {
     @Autowired
     private DepartementRepository departementRepository;
+
+
 
 
     @Override
@@ -26,19 +29,33 @@ public class DepartementServiceImpl implements DepartementService {
         return departement;
     }
 
-    @Override
-    public Departement update(Departement departement) throws Exception {
-        return null;
+@Override
+    public Departement update(Departement departement) throws Exception{
+    boolean existDepartement = departementRepository.existsById(departement.getId());
+    if(!existDepartement){
+        existDepartement = departementRepository.existsById(departement.getId());
+        if(existDepartement){
+            throw  new Exception("Département existe déjà");
+        }
     }
+    departementRepository.save(departement);
+    return departement;
+    }
+
 
     @Override
     public List<Departement> findAll() {
-        return null;
+        return departementRepository.findAll();
     }
 
     @Override
     public Departement findById(Long id) throws Exception {
-        return null;
+        return departementRepository.findById(id).orElseThrow(() -> new Exception("Département n'existe pas"));
+    }
+
+    @Override
+    public void Delete(Long id) {
+        departementRepository.deleteById(id);
     }
 }
 

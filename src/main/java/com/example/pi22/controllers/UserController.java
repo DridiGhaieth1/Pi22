@@ -1,5 +1,6 @@
 package com.example.pi22.controllers;
 
+import com.example.pi22.entities.Role;
 import com.example.pi22.entities.User;
 import com.example.pi22.requests.PasswordRequest;
 import com.example.pi22.services.UserService;
@@ -14,6 +15,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+
     @PostMapping("/register")
     public User register(@RequestBody User user) throws Exception {
         return  userService.save(user);
@@ -22,7 +25,7 @@ public class UserController {
     public User update(@RequestBody User user) throws Exception {
         return  userService.update(user);
     }
-@GetMapping
+    @GetMapping
     public List<User> findAll() {
         return  userService.findAll();
     }
@@ -35,4 +38,18 @@ public class UserController {
     public User changePassword(@RequestBody PasswordRequest passwordRequest) throws Exception {
         return  userService.changePassword(passwordRequest);
     }
+
+    @PostMapping("/register/{user}/{role}")
+    public String register(@PathVariable String user ,  @PathVariable String role) throws Exception {
+
+        return  userService.addRoleToUser( user , role);
+
+    }
+    @PostMapping("/addRole")
+    public Role register(@RequestBody Role role) throws Exception{
+        return userService.addNewRole(role);
+    }
+
+
+
 }

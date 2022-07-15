@@ -12,6 +12,7 @@ public Departement save(Departement departement) throws Exception;
     public Departement update(Departement departement) throws Exception;
     public List<Departement> findAll();
     public Departement findById(Long id) throws Exception;
+    public void Delete(Long id);
 
 }
 

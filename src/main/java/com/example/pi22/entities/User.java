@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -13,14 +15,14 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
+    private String name;
     private String prenom;
     private String email;
     private String password;
-    @Enumerated(EnumType.STRING)
-    private Role role;
+
     @ManyToOne
     private Departement departement;
-    @OneToOne
-    private Profil profil;
+    @ManyToMany(fetch = FetchType.EAGER) // Eager: Dés que je charge un user, j'ai les roles de cet utilisateur
+    private Collection<Role> roles = new ArrayList<>();;
+
 }

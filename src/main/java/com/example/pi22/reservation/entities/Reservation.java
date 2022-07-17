@@ -3,11 +3,9 @@ package com.example.pi22.reservation.entities;
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Set;
 
 @Entity

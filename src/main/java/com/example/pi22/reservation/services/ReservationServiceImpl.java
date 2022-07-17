@@ -5,15 +5,12 @@ import com.example.pi22.offer.repo.OfferRepository;
 import com.example.pi22.offer.services.IOfferService;
 import com.example.pi22.reservation.entities.Reservation;
 import com.example.pi22.reservation.repo.ReservationRepository;
-import com.example.pi22.user.User;
 import com.example.pi22.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class ReservationServiceImpl implements IReservationService {

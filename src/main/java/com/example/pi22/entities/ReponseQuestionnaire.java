@@ -1,6 +1,7 @@
 package com.example.pi22.entities;
 
 
+import com.example.pi22.user.User;
 import lombok.Data;
 
 import javax.persistence.EmbeddedId;

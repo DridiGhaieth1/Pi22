@@ -20,7 +20,7 @@ public class CommentaireServiceImpl implements ICommentaireService {
     @Override
     public Commentaire save(Commentaire commentaire) {
       commentaire =   commentaireRepository.save(commentaire);
-        if(!commentaire.getUser().getIdUser().equals(commentaire.getArticle().getUser().getIdUser())){
+        if(!commentaire.getUser().getId().equals(commentaire.getArticle().getUser().getId())){
 
             String subject = "Commentaire article";
             String text = commentaire.getUser().getNom() + " " + commentaire.getUser().getPrenom() +" a commenté votre article  avec le titre"+ commentaire.getArticle().getTitreArticle();

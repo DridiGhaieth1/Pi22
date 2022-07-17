@@ -1,11 +1,12 @@
 package com.example.pi22.services;
-
 import com.example.pi22.entities.Role;
 import com.example.pi22.entities.User;
 import com.example.pi22.requests.PasswordRequest;
 
-import javax.transaction.Transactional;
+
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -15,11 +16,13 @@ public interface UserService {
     public User findById(Long id) throws Exception;
     public User changePassword(PasswordRequest passwordRequest) throws Exception;
     public Role addNewRole (Role role) throws Exception;
-    public String addRoleToUser(String username, String roleName);
+    public String addRoleToUser(Long idUser, Long idRole) throws Exception;
 
     public User loadUserByName (String userName);
 
 
 
+    User findByEmail(String email);
 
+    Optional<User> findUserById(Long id);
 }

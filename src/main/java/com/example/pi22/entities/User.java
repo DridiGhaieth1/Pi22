@@ -19,6 +19,7 @@ public class User implements Serializable {
     private String prenom;
     private String email;
     private String password;
+    private boolean enabled;
 
     @ManyToOne
     private Departement departement;

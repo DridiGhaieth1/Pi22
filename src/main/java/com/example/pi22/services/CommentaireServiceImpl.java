@@ -4,7 +4,9 @@ import com.example.pi22.entities.Commentaire;
 import com.example.pi22.repositories.CommentaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.constraints.Email;
 import java.util.List;
 
 @Service
@@ -12,10 +14,21 @@ public class CommentaireServiceImpl implements ICommentaireService {
 
     @Autowired
     private CommentaireRepository commentaireRepository;
-
+    @Autowired
+    private EmailService emailService;
+@Transactional
     @Override
     public Commentaire save(Commentaire commentaire) {
-        return commentaireRepository.save(commentaire);
+      commentaire =   commentaireRepository.save(commentaire);
+        if(!commentaire.getUser().getIdUser().equals(commentaire.getArticle().getUser().getIdUser())){
+
+            String subject = "Commentaire article";
+            String text = commentaire.getUser().getNom() + " " + commentaire.getUser().getPrenom() +" a commenté votre article  avec le titre"+ commentaire.getArticle().getTitreArticle();
+
+       emailService.sendEmail(commentaire.getArticle().getUser().getEmail(), subject, text);
+        }
+
+        return  commentaire;
     }
 
     @Override

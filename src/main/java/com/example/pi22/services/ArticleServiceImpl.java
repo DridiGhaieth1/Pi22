@@ -35,7 +35,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public List<Article> findByUser(Long id) {
-        return articleRepository.findByUser_IdUser(id);
+        return articleRepository.findByUser_Id(id);
     }
 
     @Override

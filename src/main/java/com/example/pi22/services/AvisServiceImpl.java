@@ -40,6 +40,6 @@ public class AvisServiceImpl implements IAvisService {
 
     @Override
     public List<Avis> findByUser(Long id) {
-        return avisRepository.findByUser_idUser(id);
+        return avisRepository.findByUser_id(id);
     }
 }

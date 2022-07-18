@@ -1,23 +1,19 @@
 package com.example.pi22.services.impl;
 
 import com.example.pi22.entities.Role;
-import com.example.pi22.entities.User;
 
 import com.example.pi22.repositories.RoleRepository;
-import com.example.pi22.repositories.UserRepository;
 
 import com.example.pi22.requests.PasswordRequest;
 import com.example.pi22.services.UserService;
+import com.example.pi22.user.User;
+import com.example.pi22.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.core.oidc.OidcIdToken;
-import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Service

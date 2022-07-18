@@ -15,8 +15,4 @@ public class Pi22Application {
         SpringApplication.run(Pi22Application.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.pi22.entities;
 
+import com.example.pi22.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 

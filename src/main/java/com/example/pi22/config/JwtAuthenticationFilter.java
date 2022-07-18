@@ -1,10 +1,9 @@
 package com.example.pi22.config;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.example.pi22.entities.User;
+import com.example.pi22.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.SneakyThrows;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

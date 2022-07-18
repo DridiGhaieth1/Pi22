@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface AvisRepository extends JpaRepository<Avis, Long> {
-    List<Avis> findByUser_idUser(Long id);
+    List<Avis> findByUser_id(Long id);
 }

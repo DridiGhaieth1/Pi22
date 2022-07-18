@@ -1,9 +1,9 @@
 package com.example.pi22.controllers;
 
 import com.example.pi22.entities.Role;
-import com.example.pi22.entities.User;
 import com.example.pi22.requests.PasswordRequest;
 import com.example.pi22.services.UserService;
+import com.example.pi22.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

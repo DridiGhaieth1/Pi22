@@ -1,11 +1,10 @@
 package com.example.pi22.services;
 import com.example.pi22.entities.Role;
-import com.example.pi22.entities.User;
 import com.example.pi22.requests.PasswordRequest;
+import com.example.pi22.user.User;
 
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public interface UserService {

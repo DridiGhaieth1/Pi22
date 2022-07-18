@@ -1,12 +1,9 @@
 package com.example.pi22.services.impl;
 
 import com.example.pi22.entities.Departement;
-import com.example.pi22.entities.User;
 import com.example.pi22.repositories.DepartementRepository;
-import com.example.pi22.repositories.UserRepository;
 import com.example.pi22.services.DepartementService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.ExpressionException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

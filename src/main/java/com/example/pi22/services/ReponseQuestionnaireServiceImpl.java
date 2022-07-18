@@ -20,7 +20,7 @@ public class ReponseQuestionnaireServiceImpl  implements IReponseQuestionnaireSe
 
     @Override
     public List<ReponseQuestionnaire> findByQuestionnaireAndUser(Long idQuestionnaire, Long idUser) {
-        return reponseQuestionnaireRepository.findByItemQuestionnaire_questionnaire_idQuestionnaireAndUser_idUser(idQuestionnaire, idUser);
+        return reponseQuestionnaireRepository.findByItemQuestionnaire_questionnaire_idQuestionnaireAndUser_id(idQuestionnaire, idUser);
     }
 
 

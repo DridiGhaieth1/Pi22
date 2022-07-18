@@ -1,7 +1,6 @@
 package com.example.pi22.services;
 
 import com.example.pi22.entities.Departement;
-import com.example.pi22.entities.User;
 
 import java.util.List;
 

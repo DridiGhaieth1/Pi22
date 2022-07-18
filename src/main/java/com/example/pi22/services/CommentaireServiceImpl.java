@@ -23,7 +23,7 @@ public class CommentaireServiceImpl implements ICommentaireService {
         if(!commentaire.getUser().getId().equals(commentaire.getArticle().getUser().getId())){
 
             String subject = "Commentaire article";
-            String text = commentaire.getUser().getNom() + " " + commentaire.getUser().getPrenom() +" a commenté votre article  avec le titre"+ commentaire.getArticle().getTitreArticle();
+            String text = commentaire.getUser().getName() + " " + commentaire.getUser().getPrenom() +" a commenté votre article  avec le titre"+ commentaire.getArticle().getTitreArticle();
 
        emailService.sendEmail(commentaire.getArticle().getUser().getEmail(), subject, text);
         }

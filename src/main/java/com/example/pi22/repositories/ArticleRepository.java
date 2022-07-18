@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-    public List<Article> findByUser_IdUser(Long id);
+    public List<Article> findByUser_Id(Long id);
 }

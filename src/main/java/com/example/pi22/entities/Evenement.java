@@ -30,7 +30,7 @@ public class Evenement implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "evenementt")
-    private Set<Reservation> reservations;
+    private Set<ReservationEvent> reservationEvents;
 
 
 

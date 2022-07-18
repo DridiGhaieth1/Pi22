@@ -65,6 +65,17 @@ public class User implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER) // Eager: Dés que je charge un user, j'ai les roles de cet utilisateur
     private Collection<Role> roles = new ArrayList<>();;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "userInv")
+    private Set<Invitation> invitations;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "userAbn")
+    private Set<Abonnement> abonnement;
+
+    @OneToMany(mappedBy = "userRes")
+    private Set<ReservationEvent> reservationEvents;
+
     public User() {
         super();
     }

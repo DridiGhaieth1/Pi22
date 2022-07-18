@@ -9,15 +9,15 @@ import java.util.Optional;
 
 public interface UserService {
 
-    public User save(User user) throws Exception;
-    public User update(User user) throws Exception;
-    public List<User> findAll();
-    public User findById(Long id) throws Exception;
-    public User changePassword(PasswordRequest passwordRequest) throws Exception;
-    public Role addNewRole (Role role) throws Exception;
-    public String addRoleToUser(Long idUser, Long idRole) throws Exception;
+     User save(User user) throws Exception;
+     User update(User user) throws Exception;
+     List<User> findAll();
+     User findById(Long id) throws Exception;
+     User changePassword(PasswordRequest passwordRequest) throws Exception;
+     Role addNewRole (Role role) throws Exception;
+     String addRoleToUser(Long idUser, Long idRole) throws Exception;
 
-    public User loadUserByName (String userName);
+     User loadUserByName (String userName);
 
 
 

@@ -35,7 +35,7 @@ public class Pi22Application {
     }
     @EventListener(ApplicationReadyEvent.class)
     public void sendmail(){
-        sendEmail.sendMail("Hayder.abbassi@esprit.tn","azerrtt","azeerfvd");
+        sendEmail.sendMail("marwen.chabbouh@esprit.tn","azerrtt","azeerfvd");
     }
 
 

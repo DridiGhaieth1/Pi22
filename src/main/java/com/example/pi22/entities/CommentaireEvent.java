@@ -2,7 +2,6 @@ package com.example.pi22.entities;
 
 import lombok.Data;
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +9,7 @@ import java.util.Date;
 @Entity
 @Data
 
-public class Commentaire implements Serializable {
+public class CommentaireEvent implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id ;
@@ -19,7 +18,7 @@ public class Commentaire implements Serializable {
     private String description;
 
     @ManyToOne
-    private User user_Cmnt;
+    private User userCmnt;
 
     @ManyToOne
     private Evenement eventCmnt;

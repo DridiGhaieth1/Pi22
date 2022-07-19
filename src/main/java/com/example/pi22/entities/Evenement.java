@@ -31,11 +31,11 @@ public class Evenement implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "evntResvt")
-    private Set<Reservation> reservations;
+    private Set<ReservationEvent> reservations;
 
     @JsonIgnore
     @OneToMany(mappedBy = "eventCmnt" )
-    private Set<Commentaire> commentaires;
+    private Set<CommentaireEvent> commentaireEvents;
 
 
 

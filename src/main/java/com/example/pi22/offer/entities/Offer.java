@@ -28,6 +28,7 @@ public class Offer {
     private String picture;
     private String title;
     private String description;
+    private String categorie;
 
     @JsonIgnore
     @OneToMany(mappedBy="offer")
@@ -38,7 +39,7 @@ public class Offer {
     @ManyToOne
     private Partner partner;
 
-    public Offer(String type, float price, Date dateCreation, int stock, boolean enabled, String picture, String title, String description, Partner partner) {
+    public Offer(String type, float price, Date dateCreation, int stock, boolean enabled, String picture, String title, String description, Partner partner , String categorie) {
       super();
         this.type = type;
         this.price = price;
@@ -49,6 +50,9 @@ public class Offer {
         this.title = title;
         this.description = description;
         this.partner = partner;
+        this.categorie = categorie;
+
+
     }
 
     public Integer getId() {
@@ -157,6 +161,15 @@ public class Offer {
     public void setPublicites(Set<Publicite> publicites) {
         this.publicites = publicites;
     }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public String getcCtegorie() {
+        return categorie;
+    }
+
 
     public Set<Reservation> getReservations() {
         return reservations;

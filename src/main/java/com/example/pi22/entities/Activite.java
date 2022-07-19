@@ -29,6 +29,6 @@ public class Activite implements Serializable {
     private Set<Abonnement> abonnement;
 
     @ManyToOne
-    private Favoris favoris;
+    private TypeActivite typeActivite;
 
 }

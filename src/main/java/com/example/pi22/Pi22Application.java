@@ -19,19 +19,19 @@ public class Pi22Application {
     private SendEmail sendEmail;
     public static void main(String[] args) {
         SpringApplication.run(Pi22Application.class, args);
-        AbonnementService abonnementService =new AbonnementService();
+      /*  AbonnementService abonnementService =new AbonnementService();
         Date d= new Date();
         Date x = abonnementService.CalculerDtaeFin(d,9);
-        System.out.println(x);
+        System.out.println(x);*/
 
 
 
 
     }
-    @EventListener(ApplicationReadyEvent.class)
+  /*  @EventListener(ApplicationReadyEvent.class)
     public void sendmail(){
-        sendEmail.sendMail("Hayder.abbassi@esprit.tn","azerrtt","azeerfvd");
+        sendEmail.sendMail("ons.hleli@esprit.tn","azerrtt","azeerfvd");
     }
-
+*/
 
 }

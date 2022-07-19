@@ -15,6 +15,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String email;
 
     @JsonIgnore
     @OneToMany(mappedBy = "userInv")
@@ -24,8 +25,13 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "userAbn")
     private Set<Abonnement> abonnement;
 
+    @JsonIgnore
 @OneToMany(mappedBy = "userRes")
     private Set<Reservation> reservations;
+
+    @JsonIgnore
+@OneToMany(mappedBy = "user_Cmnt" )
+    private Set<Commentaire> commentaires;
 
 
 

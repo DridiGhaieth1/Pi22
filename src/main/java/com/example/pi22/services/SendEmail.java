@@ -5,14 +5,15 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SendEmail {
     @Autowired
     private JavaMailSender mailSender ;
 
-    public void sendMail(String toEmail,
-                         String subjct,
-                         String body){
+    public void sendMail(String subjct,
+                         String body, String... toEmail){
 
         SimpleMailMessage message =new SimpleMailMessage();
         message.setFrom("marwen.chabbouh@esprit.tn");

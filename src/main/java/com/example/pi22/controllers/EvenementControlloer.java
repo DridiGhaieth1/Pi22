@@ -5,6 +5,7 @@ import com.example.pi22.entities.Evenement;
 import com.example.pi22.services.ServiceEvenement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -41,4 +42,9 @@ public class EvenementControlloer {
         return serviceEvenement.listEvenement();
         }
 
+
+@PostMapping("/upload/{id}")
+    public Evenement uploadImage(@RequestParam MultipartFile file, @PathVariable Long id) throws Exception {
+        return serviceEvenement.uploadImage(file, id);
+}
 }

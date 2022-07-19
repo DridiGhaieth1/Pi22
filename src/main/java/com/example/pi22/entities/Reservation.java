@@ -20,7 +20,7 @@ public class Reservation implements Serializable {
 
 
     @ManyToOne
-    private Evenement evenementt;
+    private Evenement evntResvt;
 
 
 }

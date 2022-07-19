@@ -12,7 +12,11 @@ import java.util.List;
 public interface InvitaionRepository extends JpaRepository<Invitation, InvitationId>  {
 
     public List<Invitation> findByEvenement_id(Long id);
-   public List<Invitation> findByUserInv_id(Long id);
+  // public List<Invitation> findByUserInv_id(Long id);
+   public  List<Invitation> findByUserInv_id(Long id);
+
+
+
 
 
 

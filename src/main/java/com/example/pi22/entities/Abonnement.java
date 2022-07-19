@@ -17,7 +17,7 @@ public class Abonnement implements Serializable {
     private int dureeParMois;
     @Temporal(TemporalType.DATE)
     private Date dateDebut;
-    @Transient
+
     private Date dateFin ;
     private float prix;
 

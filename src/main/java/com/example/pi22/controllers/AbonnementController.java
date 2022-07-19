@@ -19,7 +19,7 @@ public class AbonnementController {
     private AbonnementService abonnementService;
 
     @PostMapping("/AjtAbn")
-    public Abonnement ajouterAbn(@RequestBody Abonnement abonnement){
+    public Abonnement ajouterAbn(@RequestBody Abonnement abonnement) throws Exception {
 
         return  iabonnementService.AjouterAbn(abonnement);
 

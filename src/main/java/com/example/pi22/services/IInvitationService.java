@@ -10,4 +10,6 @@ public interface IInvitationService {
     public String delete(Long idUser, Long idEvent);
     public List<Invitation> findByEvent(Long idEvent);
     public List<Invitation> findByUser(Long idUser);
+
+    public void sendInvitation(Long idEvent) throws Exception;
 }

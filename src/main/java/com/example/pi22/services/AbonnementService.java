@@ -2,7 +2,9 @@ package com.example.pi22.services;
 
 import com.example.pi22.entities.Abonnement;
 import com.example.pi22.entities.AbonnementId;
+import com.example.pi22.entities.Activite;
 import com.example.pi22.repositories.AbonnementRepository;
+import com.example.pi22.repositories.ActiviteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,19 @@ public class AbonnementService implements IabonnementService {
     @Autowired
     private AbonnementRepository abonnementRepository;
 
+    @Autowired
+    private ActiviteRepository activiteRepository;
+
     @Override
-    public Abonnement AjouterAbn(Abonnement abonnement) {
+    public Abonnement AjouterAbn(Abonnement abonnement) throws Exception {
+        Activite activite = activiteRepository.findById(abonnement.getId().getActiviteId())
+                .orElseThrow(() -> new Exception("Activité n'existe pas"));
+        abonnement.setPrix(activite.getPrixActiv() * abonnement.getDureeParMois());
+
+        Calendar fin = Calendar.getInstance();
+        fin.setTime(abonnement.getDateDebut());
+        fin.add(Calendar.MONTH, abonnement.getDureeParMois());
+        abonnement.setDateFin(fin.getTime());
         return abonnementRepository.save(abonnement);
     }
 
@@ -29,7 +42,7 @@ public class AbonnementService implements IabonnementService {
 
     @Override
     public String SuprimerAbn(Long idUser, Long idActivite) {
-        AbonnementId id =new AbonnementId();
+        AbonnementId id = new AbonnementId();
         id.setUserId(idUser);
         id.setActiviteId(idActivite);
         abonnementRepository.deleteById(id);
@@ -47,14 +60,15 @@ public class AbonnementService implements IabonnementService {
     @Override
     public List<Abonnement> findAbnByUser(Long idUser) {
 
-        List<Abonnement> la=abonnementRepository.findByUserAbn_Id(idUser);
-        la.forEach(x->{
+        List<Abonnement> la = abonnementRepository.findByUserAbn_Id(idUser);
+      /*  la.forEach(x->{
             x.setDateFin(CalculerDtaeFin(x.getDateDebut(),x.getDureeParMois()));
-        });
-            return la ;
+        });*/
+        return la;
     }
 
 
+/*
 public  Date CalculerDtaeFin(Date date, int nbrDeMois  ){
 
         Calendar fin = Calendar.getInstance();
@@ -70,7 +84,7 @@ return fin.getTime();
 
 
 }
-
+*/
 
 
 }

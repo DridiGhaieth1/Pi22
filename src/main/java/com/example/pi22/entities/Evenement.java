@@ -23,14 +23,19 @@ public class Evenement implements Serializable {
     private Date dateDebutEvent ;
     @Temporal(TemporalType.DATE)
     private Date dateFinEvent ;
+    private String image;
 
     @JsonIgnore
     @OneToMany(mappedBy = "evenement")
     private Set<Invitation> invitations;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "evenementt")
+    @OneToMany(mappedBy = "evntResvt")
     private Set<Reservation> reservations;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "eventCmnt" )
+    private Set<Commentaire> commentaires;
 
 
 

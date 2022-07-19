@@ -7,7 +7,7 @@ import com.example.pi22.entities.Invitation;
 import java.util.List;
 
 public interface IabonnementService  {
-    public Abonnement AjouterAbn(Abonnement abonnement);
+    public Abonnement AjouterAbn(Abonnement abonnement) throws Exception;
     public Abonnement ModifierAbn(Abonnement abonnement);
     public String SuprimerAbn(Long userId , Long idActivite);
 

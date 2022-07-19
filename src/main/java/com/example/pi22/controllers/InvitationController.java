@@ -45,4 +45,9 @@ public class InvitationController {
 
         return invitationService.findByUser(id);
     }
+
+    @GetMapping("/sendEvent/{idEvent}")
+    public void sendEvent(@PathVariable Long idEvent) throws Exception {
+        invitationService.sendInvitation(idEvent);
+    }
 }

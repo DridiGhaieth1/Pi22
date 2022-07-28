@@ -1,26 +1,26 @@
 package com.example.pi22.reservation.entities;
-
 import com.example.pi22.offer.entities.Offer;
 import com.example.pi22.user.User;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fasterxml.jackson.annotation.*;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-public class Reservation {
+public class Reservation  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private boolean validated;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateCreation;
-    @ManyToMany
+    @JsonManagedReference
+    @ManyToMany(fetch = FetchType.LAZY)
     Set<Offer> offers;
-    @ManyToOne
+    @JsonIgnoreProperties(value = {"reservations", "handler","hibernateLazyInitializer"}, allowSetters = true)
+    @ManyToOne(fetch=FetchType.LAZY)
     private User user;
     private float totalPrice;
     private String status;
@@ -88,11 +88,8 @@ public class Reservation {
         this.offers = offers;
         this.totalPrice = totalPrice;
     }
+
     public Reservation (){
         super(); }
-
-
-
-
 
 }

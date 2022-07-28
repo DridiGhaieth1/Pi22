@@ -3,8 +3,7 @@ package com.example.pi22.offer.entities;
 import com.example.pi22.partner.entities.Partner;
 import com.example.pi22.publicite.entities.Publicite;
 import com.example.pi22.reservation.entities.Reservation;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -32,8 +31,9 @@ public class Offer {
     @JsonIgnore
     @OneToMany(mappedBy="offer")
     private Set<Publicite> publicites;
-   // @JsonIgnore
-    @ManyToMany(mappedBy="offers")
+   //@JsonIgnore
+   @JsonBackReference
+   @ManyToMany(mappedBy="offers")
     Set<Reservation> reservations;
     @ManyToOne
     private Partner partner;
@@ -50,6 +50,7 @@ public class Offer {
         this.description = description;
         this.partner = partner;
     }
+
 
     public Integer getId() {
         return id;

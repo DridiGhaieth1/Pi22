@@ -15,9 +15,10 @@ public class Partner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String adress;
-    private String matriculeFiscale;
+    private String fiscale;
     private String tel;
-    private String catégorie;
+    private String categorie;
+    private String nom;
     private String activites;
     @JsonIgnore
     @OneToMany(mappedBy="partner")
@@ -29,13 +30,13 @@ public class Partner {
     @OneToMany(mappedBy="partner")
     private Set<Publicite> publicites;
 
-    public Partner(Integer id, String adress, String matriculeFiscale, String tel, String catégorie, String activites) {
+    public Partner(Integer id, String adress, String fiscale, String tel, String categorie, String activites) {
        super();
         this.id = id;
         this.adress = adress;
-        this.matriculeFiscale = matriculeFiscale;
+        this.fiscale = fiscale;
         this.tel = tel;
-        this.catégorie = catégorie;
+        this.categorie = categorie;
         this.activites = activites;
     }
     public Partner(){
@@ -58,12 +59,12 @@ public class Partner {
         this.adress = adress;
     }
 
-    public String getMatriculeFiscale() {
-        return matriculeFiscale;
+    public String getFiscale() {
+        return fiscale;
     }
 
-    public void setMatriculeFiscale(String matriculeFiscale) {
-        this.matriculeFiscale = matriculeFiscale;
+    public void setFiscale(String fiscale) {
+        this.fiscale = fiscale;
     }
 
     public String getTel() {
@@ -74,12 +75,12 @@ public class Partner {
         this.tel = tel;
     }
 
-    public String getCatégorie() {
-        return catégorie;
+    public String getCategorie() {
+        return categorie;
     }
 
-    public void setCatégorie(String catégorie) {
-        this.catégorie = catégorie;
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 
     public String getActivites() {
@@ -112,5 +113,13 @@ public class Partner {
 
     public void setPublicites(Set<Publicite> publicites) {
         this.publicites = publicites;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

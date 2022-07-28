@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
-
+@CrossOrigin(origins="*", maxAge=3600)
 @RestController
 public class ReservationRestController {
     @Autowired
@@ -40,11 +40,16 @@ public class ReservationRestController {
         reservationService.updateReservation(f);
     }
 
-    @PostMapping("/reservation/createRes")
+    @PostMapping(value ="/reservation/createRes", consumes = {"application/xml","application/json"})
     @ResponseBody
-    public Reservation createResv(@RequestBody Reservation r) {
+    public Reservation createRv(@RequestBody Reservation r) {
         return reservationService.createResv(r);
     }
 
+    @GetMapping("/reservation/list/{id}")
+    @ResponseBody
+    public List<Reservation> getReservationByPartner(@PathVariable Integer id) {
+        return reservationService.getReservationByPartner(id);
+    }
 
 }

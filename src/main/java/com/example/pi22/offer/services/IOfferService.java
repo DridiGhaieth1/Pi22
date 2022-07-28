@@ -2,6 +2,7 @@ package com.example.pi22.offer.services;
 
 import com.example.pi22.offer.entities.Offer;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -12,6 +13,8 @@ public interface IOfferService {
     void deleteOffer(Offer f);
     void deleteOfferById(Long id);
     List<Offer> getAllOffers();
+    ArrayList<Offer> getAllOffersPartner(Integer idPartner);
+
 
 
 

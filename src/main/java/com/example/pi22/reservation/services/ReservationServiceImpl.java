@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,13 +67,11 @@ public class ReservationServiceImpl implements IReservationService {
         for (Offer f:r.getOffers()) {
           Offer off1 =  offerService.getOffer(f.getId());
             lastprice +=  off1.getPrice();
-
          // System.out.println(off1.getPrice());
-
         }
          r.setTotalPrice(lastprice);
          r.setStatus("1");
-
+         r.setDateCreation(localDate);
         return reservationRepository.save(r);
     }
 
@@ -88,5 +87,21 @@ public class ReservationServiceImpl implements IReservationService {
         reservationRepository.save(r);
     }
 
+    @Override
+    public List<Reservation> getReservationByPartner(Integer idP) {
+        List<Reservation>Res = getAllReservations();
+       List<Reservation> Mylist2=new ArrayList<Reservation>();
+            for(Reservation r : Res) {
+                for (Offer f : r.getOffers()) {
+                    if (f.getPartner().getId() == idP) {
+                        System.out.println(f.getPartner().getId());
+                        System.out.println(r.getId());
+
+                        Mylist2.add(r);
+                    }
+                }
+            }
+                return Mylist2;
+    }
 
 }

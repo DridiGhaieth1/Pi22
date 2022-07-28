@@ -2,16 +2,19 @@ package com.example.pi22.user;
 
 import com.example.pi22.partner.entities.Partner;
 import com.example.pi22.reservation.entities.Reservation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class User {
+public class User  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToMany(mappedBy="user")
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY,mappedBy="user")
     private Set<Reservation> reservations;
 
     public Integer getId() {

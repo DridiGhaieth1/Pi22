@@ -8,7 +8,7 @@ import java.util.List;
 public interface IPartnerService {
     void addPartner(Partner p);
     void updatePartner(Partner p);
-    Partner getPartner(Long id);
+    Partner getPartner(Integer id);
     void deletePartner(Partner p);
     void deletePartnerById(Long id);
     List<Partner> getAllPartners();

@@ -17,4 +17,6 @@ public interface IReservationService {
     Reservation createResv(Reservation r);
 
     void annulerReservation(Reservation r);
+    List<Reservation> getReservationByPartner(Integer idP);
+
 }

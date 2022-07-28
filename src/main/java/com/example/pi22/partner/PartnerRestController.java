@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins="*", maxAge=3600)
 public class PartnerRestController {
     @Autowired
     IPartnerService partnerService;
@@ -21,6 +22,7 @@ public class PartnerRestController {
     }
 
     @GetMapping("/partner/list")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public List<Partner> listePartners() {
@@ -36,5 +38,13 @@ public class PartnerRestController {
     @ResponseBody
     public void updatePartner(@RequestBody Partner p) {
         partnerService.updatePartner(p);
+    }
+
+    @GetMapping("/partner/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public Partner getOne(@PathVariable Integer id) {
+        return partnerService.getPartner(id);
     }
 }

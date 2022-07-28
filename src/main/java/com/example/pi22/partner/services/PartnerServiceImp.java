@@ -24,8 +24,8 @@ public class PartnerServiceImp implements IPartnerService{
     }
 
     @Override
-    public Partner getPartner(Long id) {
-        return         partnerRepository.findById(Math.toIntExact(id)).get();
+    public Partner getPartner(Integer id) {
+        return         partnerRepository.findById(id).get();
     }
 
     @Override
